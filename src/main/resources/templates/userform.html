@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+
+        <header>
+            <h1>Formulaire d'ajout utilisateur</h1>
+        </header>
+
+        <form id="event-form" action="#" th:action="@{/addUser}" th:object="${user}" method="post">
+
+            <div class="fieldset-wrapper">
+                <fieldset>
+                    <legend>Informations</legend>
+                </fieldset>
+
+                <div class="input-wrapper">
+
+                    <div class="complete-name">
+                        <label for="first-name">Nom</label>
+                        <input type="text" th:field="*{nom}" id="first-name" required>
+                    </div>
+
+                    <div class="complete-name">
+                        <label for="last-name">Prenom</label>
+                        <input type="text" th:field="*{prenom}"id="last-name" required>
+                    </div>
+
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="input-email">Email <span>(Saisissez un mail valide)</span></label>
+                    <input type="email" th:field="*{email}" id="input-email" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="input-date">Mot de passe <span>(Minimum 8 caracteres)</span></label>
+                    <input type="password" th:field="*{password}" id="input-password" required minlength="8">
+                </div>
+            </div>
+
+            
+ 
+
+                
+                </div>
+            </div>
+
+        </form>
+        <footer>
+            <button type="submit" class="button" form="event-form">Enregistrer</button>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Staatliches&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+:root{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Poppins',sans-serif;
+    padding-top: 14rem;
+    background: #E5E5E5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+body::before{
+    content: '';
+    width: 100%;
+    height: 43.6rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #535971;
+    z-index: -1;
+}
+.page{
+    max-width: 770px;
+    margin: 0 auto;
+   
+    
+}
+header{
+    color: #FFFFFF;
+    max-width: 42rem;
+    width: 100%;
+    margin-bottom: 6.6rem;
+}
+header h1{
+    font-family: 'Staatliches',sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 1.8rem;
+    font-family: 'Staatliches',sans-serif;
+}
+header p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+/*inicio form »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»*/
+form{
+    width: 100%;
+    min-height: auto;
+    background-color: #FFFFFF;
+    padding: 6.4rem ;
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+    border-radius: 2rem 2rem 0 0 ;
+}
+form input:invalid{
+    border: 1px solid #f78787
+}
+form fieldset {
+    width: 100%;
+    font-family: 'Staatliches',sans-serif;
+    font-size: 2.4rem;
+    color: #535971;
+    line-height: 3.4rem;
+    border-bottom: 1px solid #E6E6F0;
+    box-sizing: border-box;
+}
+form fieldset legend{
+    margin-bottom: 1rem;
+    
+}
+.complete-name{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-top: 3.6rem;
+}
+form div:first-child .input-wrapper:nth-last-child(3){
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap:2.2rem;
+    margin: 0;
+}
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 1.6rem;
+  
+}
+.input-wrappe label{
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: #4E4958;
+}
+label span{
+    color: #C1BCCC;
+    font-size: 1.2rem;
+    line-height: 2.0rem;
+    margin-left: 9px;
+}
+label span:hover{
+    color: #4b445b;
+}
+.input-wrapper input{
+    background: #FAFAFC;
+    border-radius: 8px;
+    border: 1px solid #E6E6F0;
+    height: 5.6rem;
+    width: 100%;
+}
+.date-wrapper-fieldset{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.2rem;
+}
+.date-wrapper-fieldset fieldset{
+    border: 0;
+    font-size: 2rem;
+}
+.date-wrapper{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    
+}
+.date-wrapper .input-wrapper input{
+  min-width: 14rem;
+}
+.date-wrapper > div:nth-child(1).input-wrapper {
+    width: 100%;
+    margin-right: 2rem;
+}
+footer{
+    width: 100%;
+    height: 16rem;
+    margin-bottom: 9rem;
+    padding: 5.2rem 7.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #535971;
+    border-top: 1px solid #D6D6D6;
+    border-radius: 0 0 2rem 2rem; 
+}
+.button{
+    max-width: 600px;
+    width: 100%;
+    height: 5.5rem;
+    background: #FF5374;
+    border-radius: 2rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+    font-family: 'Staatliches', sans-serif;
+    cursor: pointer;
+}
+button:hover{
+    background: #c7193c;
+    box-shadow: 0px 1px 15px 1px #dfc5c5;
+}
+@media(max-width:770px){
+    body{
+        padding-top: 7rem ;
+    }
+    header{
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+    }
+    .date-wrapper .input-wrapper input{
+        min-width: 100%;
+        
+    }
+}
+@media(max-width:520px){
+
+    form div:first-child .input-wrapper:nth-last-child(3){
+        flex-direction: column;
+    }
+    .date-wrapper{
+        flex-direction: column;
+    }
+}
+
+
+</style>
